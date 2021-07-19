@@ -1,13 +1,13 @@
 // const product = 'Socks'
 
 // without ES6 shorthand
-const app = Vue.createApp({
-    data: function() {
-        return {
-            product: 'Socks'
-        }
-    }
-})
+// const app = Vue.createApp({
+//     data: function() {
+//         return {
+//             product: 'Socks'
+//         }
+//     }
+// })
 
 // with ES6 shorthand
 const app = Vue.createApp({
