@@ -4,6 +4,7 @@ const app = Vue.createApp({
             cart:0,
             product: 'Socks',
             brand: 'Vue Mastery',
+            onSale: true,
             // image: './assets/images/socks_blue.jpg',
             selectedVariant: 0,
             // inStock: false,
@@ -25,13 +26,19 @@ const app = Vue.createApp({
     }, 
     computed: {
         title() {
-            return this.brand + ' ' + this.product
+            return `${this.brand} ${this.product} ${this.onSale ? 'is on sale' : ''}`
         },
         image() {
             return this.variants[this.selectedVariant].image
         },
         inStock() {
-            return this.variants[this.selectedVariant].quantity
+            if (this.variants[this.selectedVariant].quantity > 0) {
+                this.onSale = true
+                return this.variants[this.selectedVariant].quantity
+            } else {
+                this.onSale = false
+                return this.variants[this.selectedVariant].quantity
+            }
         }
     }
 })
